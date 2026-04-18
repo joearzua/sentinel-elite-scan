@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sentinel-elite-scan"
+version = "1.0.0"
+description = "Secrets and payment data scanner for codebases — CLI and GitHub Action"
+requires-python = ">=3.11"
+readme = "README.md"
+license = { text = "MIT" }
+keywords = ["security", "secrets", "scanner", "appsec", "pci", "compliance"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Topic :: Security",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+    "click>=8.0",
+    "rich>=13.0",
+]
+
+[project.scripts]
+sentinelscan = "sentinelscan.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["sentinelscan*"]

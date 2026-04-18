@@ -1,6 +1,4 @@
-# SentinelEliteScan
-
-[![SentinelEliteScan](https://github.com/joearzua/sentinel-elite-scan/actions/workflows/sentinelscan.yml/badge.svg)](https://github.com/joearzua/sentinel-elite-scan/actions/workflows/sentinelscan.yml)
+# SentinelEliteScan [![SentinelEliteScan](https://github.com/joearzua/sentinel-elite-scan/actions/workflows/sentinelscan.yml/badge.svg)](https://github.com/joearzua/sentinel-elite-scan/actions/workflows/sentinelscan.yml)
 
 Secrets, payment card (PAN), and PII scanner for codebases. Runs as a CLI or GitHub Action. Fails CI builds when Critical findings are present.
 

@@ -7,6 +7,21 @@ from .report import print_json_report, print_terminal_report
 from .scanner import Finding, scan_directory, scan_git_history
 
 
+def _enable_windows_ansi() -> None:
+    """Enable ANSI/VT escape code processing in Windows console."""
+    if sys.platform != "win32":
+        return
+    try:
+        import ctypes
+        kernel32 = ctypes.windll.kernel32  # type: ignore[attr-defined]
+        handle = kernel32.GetStdHandle(-11)  # STD_OUTPUT_HANDLE
+        mode = ctypes.c_ulong()
+        if kernel32.GetConsoleMode(handle, ctypes.byref(mode)):
+            kernel32.SetConsoleMode(handle, mode.value | 0x0004)  # ENABLE_VIRTUAL_TERMINAL_PROCESSING
+    except Exception:
+        pass
+
+
 @click.group()
 @click.version_option(package_name="sentinel-elite-scan")
 def cli() -> None:
@@ -71,6 +86,7 @@ def scan(path: Path, git_history: bool, output_json: bool, no_fail: bool) -> Non
 
 
 def main() -> None:
+    _enable_windows_ansi()
     cli()
 
 

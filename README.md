@@ -64,26 +64,7 @@ sentinelscan scan . --no-fail
 ---
 
 ## Example output
-
-```
-╭─────────────────────────────────────────────────────────────────╮
-│              SentinelEliteScan — Results                        │
-│  Scanned: .  |  Total: 3  CRITICAL: 1  HIGH: 1  MEDIUM: 1       │
-╰─────────────────────────────────────────────────────────────────╯
-
-╭──────────┬─────────────────────────┬──────┬──────────────────────────┬───────────────────────┬──────────╮
-│ Severity │ File                    │ Line │ Check                    │ Value (redacted)      │ Commit   │
-├──────────┼─────────────────────────┼──────┼──────────────────────────┼───────────────────────┼──────────┤
-│ CRITICAL │ src/config/db.ts        │   12 │ Database Connection Str… │ postgres://admin:p8…  │          │
-│ HIGH     │ .env.bak                │    3 │ GitHub Personal Access … │ ghp_zK3x2…            │ a1b2c3d4 │
-│ MEDIUM   │ tests/fixtures/data.py  │   45 │ Hardcoded Password       │ hunter2*…             │          │
-╰──────────┴─────────────────────────┴──────┴──────────────────────────┴───────────────────────┴──────────╯
-
-Check descriptions:
-  ▸ Database Connection String: Database connection string with embedded credentials
-  ▸ GitHub Personal Access Token: GitHub PAT — full repository and account access
-  ▸ Hardcoded Password: Hardcoded password — credential exposure risk
-```
+![SentinelEliteScan terminal output](docs/demo.png)
 
 JSON output (`--json`):
 
